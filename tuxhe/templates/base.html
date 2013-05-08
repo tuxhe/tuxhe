@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title></title>
+        <link rel="stylesheet" href="{% static "css/main.css" %}">
+        <script src="{% static "js/main.js" %}" type="text/javascript"></script>
+    </head>
+    <body>
+        {{STATIC_URL}}
+        {% block content %}
+
+        {% endblock content %}
+    </body>
+</html>

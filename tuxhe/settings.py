@@ -16,11 +16,11 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(PROJECT_PATH, 'tuxhe_blog.db'),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tuxhe_blog',
+        'USER': 'root',
+        'PASSWORD': 'wosl@3578964',
+        'HOST': '127.0.0.1',
         'PORT': '',
     }
 }
@@ -122,9 +122,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tuxhe_blog'
+    'tuxhe',
+    'tuxhe_blog',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
