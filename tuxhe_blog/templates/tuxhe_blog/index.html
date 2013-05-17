@@ -1,17 +1,44 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+{% load url from future %}
 {% load tuxhe_extras %}
-
+{% block menu_sidebar %}
+{% endblock menu_sidebar %}
 {% block content %}
+{% csrf_token %}
     {% for post in posts %}
-        <article>
-            <header>
-                <h2>
-                    {{ post.title }} {{ post.create_at|age }}
-                </h2>
-            </header>
-            <p> 
-                {{post.content}}
-            </p>
+        <article class="article_container {{ type|random }}">
+            <div class="thumbnail">
+                    <img src="{{ post.thumbnail.url }}" alt="">
+            </div>
+            <div class="article_content">
+                <div class="chat-bubble-arrow-border"></div>
+                <div class="chat-bubble-arrow"></div>
+                <header>
+                    <h2>
+                        {{ post.title }} 
+                    </h2>
+                </header>
+                
+                <p class="content">
+                    <a href="#" class="vote" data-id="{{ post.id }}">Votar</a>
+                    {{ post.title }}
+                    {{post.short_content|truncatechars:"200"}}
+                </p>
+                <div class="info">
+                    <div calass="date">
+                        {{ post.create_at|age }}
+                    </div>
+                    <div class="user">
+                        {{ post.author }}
+                    </div>
+                    <div class="comments_count">
+                    </div>
+                    <div class="tags">
+                        
+                    </div>
+                </div>
+            </div>
         </article>
     {% endfor %}
 {% endblock content %}

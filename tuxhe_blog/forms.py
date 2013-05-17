@@ -7,4 +7,4 @@ class PostForm(ModelForm):
     """docstring for PostForm"""
     class Meta:
         model = Post
-        
+        exclude = ('author_id')

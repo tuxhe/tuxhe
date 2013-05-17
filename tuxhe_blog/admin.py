@@ -10,7 +10,8 @@ class PostAdmin(admin.ModelAdmin):
 
     fieldsets = [
         ('Post', {
-            'fields': ('title', 'url', 'content', 'tags', 'status')
+            'fields': ('title', 'url', 'thumbnail', 'short_content', 'content',
+                       'tags', 'status')
         }),
         ('Author', {
             'classes': ('collapse',),

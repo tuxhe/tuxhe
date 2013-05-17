@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 class Post(models.Model):
     title = models.CharField(max_length=80)
     url = models.URLField(max_length=80)
+    thumbnail = models.FileField(upload_to='post_thumbnails')
+    short_content = models.TextField(max_length=20)
     content = models.TextField()
     tags = models.CharField(max_length=80)
     status = models.CharField(max_length=80)
