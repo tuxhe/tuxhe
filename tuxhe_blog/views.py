@@ -14,14 +14,12 @@ def get_posts(number_of_posts=10):
 
 def index(request):
     posts = get_posts(10)
-    type_post = ['container_s', 'container_s', 'container_m', 'container_l']
     return render(
         request,
         'tuxhe_blog/index.html',
         {
             'posts': posts,
-            'user': request.user,
-            'type': type_post
+            'user': request.user
         })
 
 

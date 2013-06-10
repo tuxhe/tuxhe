@@ -7,9 +7,17 @@
 {% block content %}
 {% csrf_token %}
     {% for post in posts %}
-        <article class="article_container {{ type|random }}">
+        <article class="{% if forloop.last or forloop.revcounter == 2 %}
+                article-container-s
+            {% else %}
+                article-container
+            {% endif %}">
             <div class="thumbnail">
                     <img src="{{ post.thumbnail.url }}" alt="">
+            <div class="social-share">
+                <a href="#" class="facebook circle image-wrap"></a>
+                <a href="#" class="twitter circle image-wrap"></a>
+            </div>
             </div>
             <div class="article_content">
                 <div class="chat-bubble-arrow-border"></div>
@@ -32,11 +40,8 @@
                     <div class="user">
                         {{ post.author }}
                     </div>
-                    <div class="comments_count">
-                    </div>
-                    <div class="tags">
-                        
-                    </div>
+                    <div class="comments_count"></div>
+                    <div class="tags"></div>
                 </div>
             </div>
         </article>
